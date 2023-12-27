@@ -32,8 +32,8 @@ namespace Runtime.Signals
         public UnityAction onRestartLevel=delegate{  };
         public UnityAction onReset=delegate{  };
         public Func<byte> onGetLevelValue= delegate { return 0;};
-
-
+        public UnityAction onLevelSuccesful=delegate{  };
+        public UnityAction onLevelFailed=delegate{  };
     }    
 
 }
