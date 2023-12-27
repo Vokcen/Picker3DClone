@@ -23,6 +23,7 @@ namespace Runtime.Controllers.UI
 
         private void SubscribeEvents()
         {         
+         
             CoreUISignals.Instance.onOpenPanel += OnOpenPanel;
             CoreUISignals.Instance.onClosePanel += OnClosePanel;
             CoreUISignals.Instance.onCloseAllPanel += OnCloseAllPanel;

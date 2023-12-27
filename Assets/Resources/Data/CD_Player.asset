@@ -9,10 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f646a78497004a18964f7c4b1818b7fa, type: 3}
-  m_Name: CD_Input
+  m_Script: {fileID: 11500000, guid: c867b396e309444bb4e08b0924d937cf, type: 3}
+  m_Name: CD_Player
   m_EditorClassIdentifier: 
-  data:
-    HorizontalInputSpeed: 5
-    clampValues: {x: -3, y: 3}
-    clampSpeed: 0.07
+  Data:
+    MovementData:
+      ForwardSpeed: 3
+      SidewaySpeed: 5
+    MeshData:
+      ScaleCounter: 1.2
+    ForceData:
+      ForceParaMeters:
+        x: 0
+        y: 4
+        z: 10
