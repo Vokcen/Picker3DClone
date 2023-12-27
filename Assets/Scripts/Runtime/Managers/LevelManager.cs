@@ -1,11 +1,10 @@
-using System;
-using Commands.Level;
-using Data.UnityObjects;
-using Data.ValueObjects;
-using Signals;
+using Runtime.Commands.Level;
+using Runtime.Data.UnityObjects;
+using Runtime.Data.ValueObjects;
+using Runtime.Signals;
 using UnityEngine;
 
-namespace  Managers
+namespace Runtime.Managers
 {
     public class LevelManager : MonoBehaviour
     {
@@ -90,7 +89,7 @@ namespace  Managers
 
         private void Start()
         {
-            CoreGameSignal.Instance.onLevelInitialize?.Invoke((byte)(_currentLevel%totalLevelCount));
+            CoreGameSignals.Instance.onLevelInitialize?.Invoke((byte)(_currentLevel%totalLevelCount));
             //UISignals
         }
 
