@@ -16,12 +16,13 @@ namespace Runtime.Commands.Input
 
         public void Execute()
         {
-            InputSignals.Instance.OnInputDragged?.Invoke(_inputParams);
-            Debug.LogWarning("Executed ----> OnInputDragged");
+          //  InputSignals.Instance.OnInputDragged?.Invoke(_inputParams);
+            //Debug.LogWarning("Executed ----> OnInputDragged");
         }
 
         public void Execute(HorizontalInputParams inputParams)
         {
+          
             InputSignals.Instance.OnInputDragged?.Invoke(inputParams);
             Debug.LogWarning("Executed ----> OnInputDragged");
         }

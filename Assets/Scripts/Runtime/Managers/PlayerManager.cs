@@ -58,9 +58,9 @@ namespace Runtime.Managers
 
         private void SubscribeEvents()
         {
-            InputSignals.Instance.OnInputTaken -= ()=> movementController.IsReadyToMove(true);
+            InputSignals.Instance.OnInputTaken += ()=> movementController.IsReadyToMove(true);
            InputSignals.Instance.OnInputRelased+= ()=> movementController.IsReadyToMove(false);
-           InputSignals.Instance.OnInputDragged+= OnInputDragged;
+           InputSignals.Instance.OnInputDragged += OnInputDragged;
            UISignals.Instance.onPlay += ()=>   movementController.IsReadyToPlay(true);
            CoreGameSignals.Instance.onLevelSuccesful+=()=>movementController.IsReadyToPlay(false);
            CoreGameSignals.Instance.onLevelFailed+= ()=>movementController.IsReadyToPlay(false);
@@ -86,6 +86,7 @@ namespace Runtime.Managers
     
         private void OnInputDragged(HorizontalInputParams inputParams)
         {
+          
             movementController.UpdateInputParams(inputParams);
         }
 
@@ -93,6 +94,10 @@ namespace Runtime.Managers
         private void OnStageAreaSuccessful(byte value)
         {
             StageValue = (byte)++value;
+            movementController.IsReadyToPlay(true);
+            meshController.ScaleUpPlayer();
+            meshController.PlayConfetti();
+            meshController.ShowUpText();
         }
       
 

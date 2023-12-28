@@ -603,7 +603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 0, z: -10}
+  m_FollowOffset: {x: 0, y: 5.43, z: -10}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -784,7 +784,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253084543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.07408305, y: 0.026104942, z: -0.0019399312, w: 0.9969085}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -982,8 +982,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1849935622}
   - component: {fileID: 1849935621}
-  - component: {fileID: 1849935620}
-  - component: {fileID: 1849935619}
+  - component: {fileID: 1849935624}
+  - component: {fileID: 1849935625}
   m_Layer: 0
   m_Name: UIRoot
   m_TagString: Untagged
@@ -991,30 +991,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1849935619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1849935618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9fcedeb797e40ccb9b4bf5f25d47c01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1849935620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1849935618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f31b27f948904f8f9ba8455b2444609c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1849935621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1043,6 +1019,30 @@ Transform:
   - {fileID: 581308600}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1849935624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849935618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f31b27f948904f8f9ba8455b2444609c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1849935625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849935618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9fcedeb797e40ccb9b4bf5f25d47c01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1934729642
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,6 +1098,7 @@ GameObject:
   - component: {fileID: 1975001401}
   - component: {fileID: 1975001403}
   - component: {fileID: 1975001402}
+  - component: {fileID: 1975001404}
   m_Layer: 0
   m_Name: CameraManager
   m_TagString: Untagged
@@ -1113,14 +1114,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975001400}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.07408305, y: 0.026104942, z: -0.0019399312, w: 0.9969085}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 811580768}
   m_Father: {fileID: 1722241505}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 8.5, y: 3, z: 0}
 --- !u!114 &1975001402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1173,6 +1174,19 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 811580768}
+--- !u!114 &1975001404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975001400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75007faf012f403db4ecb6c8f8d91ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  XClampValue: 0
 --- !u!1 &2142713658
 GameObject:
   m_ObjectHideFlags: 0

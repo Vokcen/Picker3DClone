@@ -58,7 +58,6 @@ namespace Runtime.Managers
         
             InputSignals.Instance.onEnableInput += OnEnableInput;
             InputSignals.Instance.onDisableInput += OnDisableInput;
-            InputSignals.Instance.OnInputTaken += OnInputTaken;
             CoreGameSignals.Instance.onReset += OnReset;
 
     
@@ -70,7 +69,7 @@ namespace Runtime.Managers
             CoreGameSignals.Instance.onReset -= OnReset;
             InputSignals.Instance.onEnableInput -= OnEnableInput;
             InputSignals.Instance.onDisableInput -= OnDisableInput;
-            InputSignals.Instance.OnInputTaken -= OnInputTaken;
+             
         }
 
          
@@ -101,35 +100,39 @@ namespace Runtime.Managers
 
         }
 
-        private void OnInputReleased()
-        {
-           
-        }
-
-        private void OnInputDragged(HorizontalInputParams inputParams)
-        {
-       
-        }
+      
+      
         private void Update()
-        {
+        {if(!_isAvaibleForTouch)return;
              if(IsPointerOverUIElements())return;
              
             if (Input.GetMouseButtonUp(0))
             {
+                _isTouching = false;
                 ExecuteInputCommand(1);  
             }
 
             if (Input.GetMouseButtonDown(0)  )
             {
-                ExecuteInputCommand(0);  
+                _isTouching = true;
+                ExecuteInputCommand(0);
+                if (_isFirstTimeTouchTaken)
+                {
+                    _isFirstTimeTouchTaken = true;
+                    InputSignals.Instance.onFirstTimeTouchTaken?.Invoke();
+                }
+             
+                _mousePosition = Input.mousePosition;
             }
 
             if (Input.GetMouseButton(0) )
             {
+               
+
                 ExecuteInputCommand(2, new HorizontalInputParams
                 {
                     HorizontalValue = CalculateHorizontalInput(),
-                    ClampValues = _data.clampSpeed
+                    ClampValues = _data.clampValues
                 });
             }
         }
@@ -159,26 +162,30 @@ namespace Runtime.Managers
         }
         private float CalculateHorizontalInput()
         {
-            if (_mousePosition != null)
+            if (_isTouching)
             {
-                Vector2 mouseDeltaPos = (Vector2)Input.mousePosition - _mousePosition.Value;
-                if (mouseDeltaPos.x > _data.HorizontalInputSpeed)
+                if (_mousePosition != null)
                 {
-                    _moveVector.x = _data.HorizontalInputSpeed / 10 * mouseDeltaPos.x;
-                }
-                else if (mouseDeltaPos.x < -_data.HorizontalInputSpeed) // Fix: Changed '>' to '<'
-                {
-                    _moveVector.x = -_data.HorizontalInputSpeed / 10 * mouseDeltaPos.x;
-                }
-                else
-                {
-                    _moveVector.x = Mathf.SmoothDamp(-_moveVector.x, 0f, ref _currentVelocity, _data.clampSpeed);
-                }
+                    Vector2 mouseDeltaPos = (Vector2)Input.mousePosition - _mousePosition.Value;
+                    if (mouseDeltaPos.x > _data.HorizontalInputSpeed)
+                        _moveVector.x = _data.HorizontalInputSpeed / 10f * mouseDeltaPos.x;
+                    else if (mouseDeltaPos.x < -_data.HorizontalInputSpeed)
+                        _moveVector.x = -_data.HorizontalInputSpeed / 10f * -mouseDeltaPos.x;
+                    else
+                        _moveVector.x = Mathf.SmoothDamp(_moveVector.x, 0f, ref _currentVelocity,
+                            _data.clampSpeed);
 
-                _mousePosition = Input.mousePosition;
+                    _moveVector.x = mouseDeltaPos.x;
 
-                return _moveVector.x;
+                    _mousePosition = Input.mousePosition;
+
+                  
+
+                    
+                    return _moveVector.x;
+                }
             }
+         
 
             return 0f;
         }

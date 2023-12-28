@@ -64,7 +64,8 @@ namespace Runtime.Controllers.Player
 
                 var position1 = rigidbody.position;
                 Vector3 position;
-                
+                Debug.LogWarning(_clampValues.x);
+
                 position= new Vector3(Mathf.Clamp(position1.x,_clampValues.x,_clampValues.y),
                     (position= rigidbody.position).y,position.z);
 

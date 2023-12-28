@@ -12,13 +12,22 @@ namespace Runtime.Signals
 
         public static CoreGameSignals Instance;
 
+        
+ 
         private void Awake()
         {
- 
+
+            if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
 
             Instance = this;
      
         }
+     
+        
         #endregion
         
         public UnityAction<byte>onLevelInitialize=delegate{  };
