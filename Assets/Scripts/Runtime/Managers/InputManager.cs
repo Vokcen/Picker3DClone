@@ -162,8 +162,7 @@ namespace Runtime.Managers
         }
         private float CalculateHorizontalInput()
         {
-            if (_isTouching)
-            {
+           
                 if (_mousePosition != null)
                 {
                     Vector2 mouseDeltaPos = (Vector2)Input.mousePosition - _mousePosition.Value;
@@ -184,7 +183,7 @@ namespace Runtime.Managers
                     
                     return _moveVector.x;
                 }
-            }
+            
          
 
             return 0f;

@@ -45,16 +45,13 @@ namespace Runtime.Controllers.UI
         {
           if(layers[value].childCount<=0)return;
     
-              #if UNITY_EDITOR
-              DestroyImmediate(layers[value].GetChild(0).gameObject);
-              #else
+           
     
               Destroy(layers[value].GetChild(0).gameObject);
-
-#endif
+              
          
         }    
-        [Button]
+ 
         private void OnCloseAllPanel()
         {
             foreach (var layer in layers)
@@ -63,12 +60,10 @@ namespace Runtime.Controllers.UI
                 {
                     
          
-#if UNITY_EDITOR
-                DestroyImmediate(layer.GetChild(0).gameObject);
-                #else
+ 
+               
                 Destroy(layer.GetChild(0).gameObject);
-#endif
-
+ 
                 }
 
             }

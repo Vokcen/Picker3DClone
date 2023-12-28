@@ -38,7 +38,7 @@ namespace Runtime.Controllers.Player
 
         internal void PlayConfetti()
         {
-            confetti.Play();
+           // confetti.Play();
       
         }
 

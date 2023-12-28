@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1822384118623353143}
   - component: {fileID: 3804964825057993505}
   - component: {fileID: 557804000975258916}
-  - component: {fileID: 3413824131084641824}
+  - component: {fileID: 168535229337351171}
   m_Layer: 0
   m_Name: Collectible
   m_TagString: Collectable
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8657334139905461424}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &3804964825057993505
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -111,9 +111,9 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 2
---- !u!65 &3413824131084641824
-BoxCollider:
+  m_CollisionDetection: 0
+--- !u!135 &168535229337351171
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -131,5 +131,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}

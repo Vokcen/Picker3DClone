@@ -95,6 +95,7 @@ namespace Runtime.Managers
         {
             StageValue = (byte)++value;
             movementController.IsReadyToPlay(true);
+           
             meshController.ScaleUpPlayer();
             meshController.PlayConfetti();
             meshController.ShowUpText();

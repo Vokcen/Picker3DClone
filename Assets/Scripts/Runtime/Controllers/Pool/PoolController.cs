@@ -67,7 +67,7 @@ namespace Runtime.Controllers.Pool
         private void OnChangePoolColor(byte stageValue)
         {
             if(stageValue!=stageID) return;
-            renderer.material.DOColor(new Color(0.2078432f, 3058824f, 0.5294118f), 1).SetEase(Ease.Linear);
+            renderer.material.DOColor(new Color(0.1607843f, 0.3137255f, 0.6039216f), 1).SetEase(Ease.Linear);
         }
 
         private void Start()
