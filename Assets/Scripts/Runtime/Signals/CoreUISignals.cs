@@ -9,19 +9,35 @@ namespace Runtime.Signals
         #region  Singleton
 
         
+        private static CoreUISignals _instance;
 
-        public static CoreUISignals Instance;
+        public static CoreUISignals Instance
+        {
+            get
+            {
+         
+                if (_instance == null)
+                {
+                    
+                    _instance = FindObjectOfType<CoreUISignals>();
+
+                   
+                }
+
+                return _instance;
+            }
+        }
 
         private void Awake()
         {
 
-            if (Instance != null && Instance != this)
+            if (_instance != null && _instance != this)
             {
-                Destroy(gameObject);
-                return;
+                Destroy(this.gameObject);
             }
 
-            Instance = this;
+            
+            _instance = this;
      
         }
         #endregion

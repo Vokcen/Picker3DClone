@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Runtime.Commands.Level
 {
@@ -14,8 +15,20 @@ namespace Runtime.Commands.Level
 
         internal void Execute(byte levelIndex)
         {
-          Object.Instantiate(Resources.Load<GameObject>($"Prefabs/LevelPrefabs/level {levelIndex}"),_levelHolder,true); 
-       
+        //  Object.Instantiate(Resources.Load<GameObject>($"Prefabs/LevelPrefabs/level {levelIndex}"),_levelHolder,true); 
+        
+  
+         
+            var request =Addressables.LoadAssetAsync<GameObject>($"Prefabs/LevelPrefabs/Level {levelIndex}");
+            request.Completed += handle =>
+            {
+                Debug.Log(handle);
+           var newLevel=  Object.Instantiate(request.Result as GameObject,Vector3.zero,Quaternion.identity);
+           if (newLevel != null)
+           {
+               newLevel.transform.SetParent(_levelHolder.transform);
+           }
+            };
         }
     }
 

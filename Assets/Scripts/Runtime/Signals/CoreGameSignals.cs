@@ -7,24 +7,39 @@ namespace Runtime.Signals
     public class CoreGameSignals : MonoBehaviour
     {
         #region  Singleton
+        private static CoreGameSignals _instance;
 
-        
 
-        public static CoreGameSignals Instance;
+        public static CoreGameSignals Instance
+        {
+            get
+            {
+         
+                if (_instance == null)
+                {
+                    
+                    _instance = FindObjectOfType<CoreGameSignals>();
+
+                   
+                }
+
+                return _instance;
+            }
+        }
 
         
  
         private void Awake()
         {
-
-            if (Instance != null && Instance != this)
+         
+            if (_instance != null && _instance != this)
             {
-                Destroy(gameObject);
-                return;
+                Destroy(this.gameObject);
             }
 
-            Instance = this;
-     
+            
+            _instance = this;
+            
         }
      
         
